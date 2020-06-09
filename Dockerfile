@@ -15,11 +15,15 @@ RUN apt-get update && apt-get install -y \
     perl-modules \
     python3 \
     python3-numpy \
+    python3-pip \
     python3-setuptools \
     tar \
     tcsh \
     unzip \
     wget
+
+RUN pip3 install --upgrade pip && \
+    pip3 install --no-cache-dir --upgrade --force-reinstall "numpy<1.17dev,>=1.8"
 
 
 RUN DEBIAN_FRONTEND=noninteractive \
